@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  react_native_app:
+    build:
+      context: ./reactapp/
+      args:
+        - NODE_ENV=development
+    environment:
+      - NODE_ENV=development
+      #- EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      - REACT_NATIVE_PACKAGER_HOSTNAME=192.168.0.183
+    ports:
+      - '19006:19006'
+      - '19000:19000'
+      - '19001:19001'
+      - '19002:19002'
+      
+    volumes:
+      - ./reactapp/my-app:/opt/reactapp/my-app
+      - notused:/opt/reactapp/my-app/node_modules
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    healthcheck:
+      disable: true
+
+volumes:
+  notused:
