@@ -26,3 +26,5 @@ npx expo install expo-image-picker
 
 npx expo install react-native-gesture-handler react-native-reanimated
 npm install -D @babel/plugin-proposal-export-namespace-from
+
+npx expo install react-native-view-shot expo-media-library
