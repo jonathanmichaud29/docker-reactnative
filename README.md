@@ -23,3 +23,6 @@ npx -y create-expo-app my-app --template tabs
 
 npx expo install @expo/vector-icons
 npx expo install expo-image-picker
+
+npx expo install react-native-gesture-handler react-native-reanimated
+npm install -D @babel/plugin-proposal-export-namespace-from

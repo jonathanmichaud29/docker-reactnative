@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StatusBar } from 'expo-status-bar';
 import * as ImagePicker from 'expo-image-picker';
 
@@ -52,7 +53,7 @@ export default function TabThreeScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <GestureHandlerRootView style={styles.container}>
       <View style={styles.imageContainer}>
         <ImageViewer 
           placeholder={PlaceholderImage} 
@@ -84,8 +85,8 @@ export default function TabThreeScreen() {
       <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
         <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
-      {/* <StatusBar style="auto" /> */}
-    </View>
+      <StatusBar style="auto" />
+    </GestureHandlerRootView>
   );
 }
 

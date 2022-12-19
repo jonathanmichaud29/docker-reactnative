@@ -18,7 +18,8 @@ services:
       
     volumes:
       - ./reactapp/my-app:/opt/reactapp/my-app
-      - notused:/opt/reactapp/my-app/node_modules
+      #- notused:/opt/reactapp/my-app/node_modules
+      - /opt/reactapp/my-app/node_modules
     stdin_open: true # docker run -i
     tty: true # docker run -t
     healthcheck:
