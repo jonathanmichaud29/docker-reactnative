@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef, forwardRef } from 'react';
 import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { captureRef } from 'react-native-view-shot';
@@ -17,6 +17,27 @@ import EmojiSticker from '../components/EmojiSticker';
 
 const PlaceholderImage = require('../assets/images/background-image.png');
 
+
+interface RefCompProps {
+  selectedImage: String;
+  pickedEmoji: Object | null;
+}
+
+const RefComp = forwardRef<HTMLInputElement, RefCompProps>(({selectedImage, pickedEmoji}, ref) => {
+  console.info(ref); 
+  return (
+    <View ref={ref} collapsable={false}>
+      <ImageViewer 
+        placeholder={PlaceholderImage} 
+        selectedImage={selectedImage}
+      />
+      {pickedEmoji !== null ? <EmojiSticker imageSize={40} stickerSource={pickedEmoji} /> : null}
+    </View>
+  );
+}); 
+
+
+
 export default function TabThreeScreen() {
   const [selectedImage, setSelectedImage] = useState<String>('');
   const [showAppOptions, setShowAppOptions] = useState<boolean>(false);
@@ -24,7 +45,23 @@ export default function TabThreeScreen() {
   const [pickedEmoji, setPickedEmoji] = useState<Object | null>(null);
   const [status, requestPermission] = MediaLibrary.usePermissions();
 
-  const imageRef = useRef();  
+  const imageRef = useRef();
+  interface RefCompProps {
+    /* myselectedImage: String;
+    mypickedEmoji: Object | null; */
+  }
+  const MyRefComp = forwardRef<HTMLInputElement, RefCompProps>(({/* myselectedImage, mypickedEmoji */}, ref) => {
+    /* console.info(ref, PlaceholderImage, myselectedImage, mypickedEmoji); */
+    return (
+      <View ref={ref} collapsable={false}>
+        <ImageViewer 
+          placeholder={PlaceholderImage} 
+          selectedImage={selectedImage}
+        />
+        {pickedEmoji !== null ? <EmojiSticker imageSize={40} stickerSource={pickedEmoji} /> : null}
+      </View>
+    );
+  });
 
   if (status === null) {
     requestPermission();
@@ -37,17 +74,20 @@ export default function TabThreeScreen() {
     setIsModalVisible(true);
   };
   const onSaveImageAsync = async () => {
+    /* console.warn("Trigger on save image", imageRef); */
     try {
       const localUri = await captureRef(imageRef, {
         height: 440,
         quality: 1,
       });
+      alert(`Local URI ${localUri}`);
 
       await MediaLibrary.saveToLibraryAsync(localUri);
       if (localUri) {
         alert("Saved!");
       }
     } catch (e) {
+      alert(e);
       console.log(e);
     }
   };
@@ -68,16 +108,20 @@ export default function TabThreeScreen() {
     }
   };
 
+  
+
   return (
     <GestureHandlerRootView style={styles.container}>
       <View style={styles.imageContainer}>
-        <View ref={imageRef} collapsable={false}>
+        {/* <MyRefComp ref={imageRef} /* myselectedImage={selectedImage} mypickedEmoji={pickedEmoji} * / /> */}
+        <RefComp ref={imageRef} selectedImage={selectedImage} pickedEmoji={pickedEmoji} />
+        {/* <View ref={imageRef} collapsable={false}>
           <ImageViewer 
             placeholder={PlaceholderImage} 
             selectedImage={selectedImage}
           />
           {pickedEmoji !== null ? <EmojiSticker imageSize={40} stickerSource={pickedEmoji} /> : null}
-        </View>
+        </View> */}
       </View>
       { showAppOptions ? (
         <View style={styles.optionsContainer}>
