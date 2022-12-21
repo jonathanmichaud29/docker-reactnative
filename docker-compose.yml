@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  react_native_app:
+  second_app:
     build:
-      context: ./reactapp/
+      context: ./secondapp/
       args:
         - NODE_ENV=development
     environment:
@@ -17,13 +17,10 @@ services:
       - '19002:19002'
       
     volumes:
-      - ./reactapp/my-app:/opt/reactapp/my-app
-      #- notused:/opt/reactapp/my-app/node_modules
-      - /opt/reactapp/my-app/node_modules
+      - ./secondapp/my-app:/opt/secondapp/my-app
+      #- notused:/opt/secondapp/my-app/node_modules
+      - /opt/secondapp/my-app/node_modules
     stdin_open: true # docker run -i
     tty: true # docker run -t
     healthcheck:
       disable: true
-
-volumes:
-  notused:
