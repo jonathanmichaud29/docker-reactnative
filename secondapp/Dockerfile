@@ -17,7 +17,7 @@ ENV PATH /home/node/.npm-global/bin:$PATH
 RUN npm i --unsafe-perm --allow-root -g npm@latest expo-cli@latest
 
 # Copy package then install them
-WORKDIR /opt/reactapp/my-app/
+WORKDIR /opt/secondapp/my-app/
 COPY ./my-app/package.json .
 RUN npm install
 
