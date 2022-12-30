@@ -1,19 +1,22 @@
 import { useState, useRef } from 'react';
-import { StatusBar } from 'expo-status-bar';
+
 import { StyleSheet, View, Platform, Text } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import * as MediaLibrary from 'expo-media-library';
 import { captureRef } from 'react-native-view-shot';
+
+import { StatusBar } from 'expo-status-bar';
+import * as ImagePicker from 'expo-image-picker';
+import * as MediaLibrary from 'expo-media-library';
+
 import domtoimage from 'dom-to-image';
 
-import ImageViewer from '../components/ImageViewer';
-import Button from '../components/Button';
-import CircleButton from '../components/CircleButton';
-import IconButton from '../components/IconButton';
-import EmojiPicker from "../components/EmojiPicker";
-import EmojiList from '../components/EmojiList';
-import EmojiSticker from '../components/EmojiSticker';
+import ImageViewer from '../components/TutorialExpo/ImageViewer';
+import Button from '../components/TutorialExpo/Button';
+import CircleButton from '../components/TutorialExpo/CircleButton';
+import IconButton from '../components/TutorialExpo/IconButton';
+import EmojiPicker from "../components/TutorialExpo/EmojiPicker";
+import EmojiList from '../components/TutorialExpo/EmojiList';
+import EmojiSticker from '../components/TutorialExpo/EmojiSticker';
 
 const PlaceholderImage = require('../assets/images/background-image.png');
 
@@ -46,6 +49,8 @@ export default function ScreenTutorial() {
 
   const onReset = () => {
     setShowAppOptions(false);
+    setSelectedImage('');
+    setPickedEmoji(null);
   };
 
   const onAddSticker = () => {
@@ -117,10 +122,10 @@ export default function ScreenTutorial() {
             theme="primary" 
             onPress={pickImageAsync} 
           />
-          <Button 
+          {/* <Button 
             label="Use this photo" 
             onPress={() => setShowAppOptions(true)} 
-          />
+          /> */}
         </View>
       ) }
       <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
