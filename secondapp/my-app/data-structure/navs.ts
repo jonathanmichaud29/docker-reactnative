@@ -16,3 +16,22 @@ export const BottomNavAssetNames = {
     label: 'Info'
   },
 };
+
+export const DrawerNavAssetNames = {
+  Home: { 
+    icon: "",
+    label: 'Home'
+  },
+  TutorialExpo: { 
+    icon: "",
+    label: 'Tutorial Expo'
+  },
+  Public: { 
+    icon: "",
+    label: 'Public'
+  },
+  Private: { 
+    icon: "",
+    label: 'Private'
+  },
+};
