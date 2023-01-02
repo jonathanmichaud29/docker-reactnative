@@ -7,6 +7,7 @@ import { BottomNavAssetNames } from '../data-structure/navs';
 
 import ScreenInfo from '../screens/ScreenInfo';
 import ScreenLogin from '../screens/ScreenLogin';
+import ScreenTest from '../screens/ScreenTest';
 
 const BottomTab = createBottomTabNavigator<BottomStackParamList>();
 
@@ -21,8 +22,21 @@ export default function NavBottom() {
         )
       })}
     >
-      <BottomTab.Screen name="Info" component={ScreenInfo} options={{tabBarLabel:"Info"}}/>
-      <BottomTab.Screen name="Login" component={ScreenLogin} options={{tabBarLabel:"Log in"}} />
+      <BottomTab.Screen name="Info" component={ScreenInfo} 
+        options={{
+          tabBarLabel:"Info"
+          }}
+        />
+      <BottomTab.Screen name="Test" component={ScreenTest} 
+        options={{
+          tabBarLabel:"Test"
+          }}
+      />
+      <BottomTab.Screen name="Login" component={ScreenLogin} 
+        options={{
+          tabBarLabel:"Log in"
+        }} 
+        />
     </BottomTab.Navigator>
   );
 }

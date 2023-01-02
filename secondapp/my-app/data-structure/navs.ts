@@ -15,6 +15,10 @@ export const BottomNavAssetNames = {
     icon: "information",
     label: 'Info'
   },
+  Test: { 
+    icon: "warning-outline",
+    label: 'Test'
+  },
 };
 
 export const DrawerNavAssetNames = {

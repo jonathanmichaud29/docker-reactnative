@@ -12,10 +12,12 @@ export type ScreenFeedProps = NativeStackScreenProps<UnusedStackParamList, 'Feed
 export type BottomStackParamList = {
   Login: undefined;
   Info: undefined;
+  Test: undefined;
 };
 
 export type ScreenLoginProps = NativeStackScreenProps<BottomStackParamList, 'Login'>;
 export type ScreenInfoProps = NativeStackScreenProps<BottomStackParamList, 'Info'>;
+export type ScreenTestProps = NativeStackScreenProps<BottomStackParamList, 'Test'>;
 
 
 export type DrawerStackParamList = {
@@ -23,9 +25,11 @@ export type DrawerStackParamList = {
   TutorialExpo: undefined;
   Public: undefined;
   Private: undefined;
+  CustomNavigation: undefined;
 };
 
 export type ScreenHomeProps = NativeStackScreenProps<DrawerStackParamList, 'Home'>;
 export type ScreenTutorialExpoProps = NativeStackScreenProps<DrawerStackParamList, 'TutorialExpo'>;
 export type ScreenPublicProps = NativeStackScreenProps<DrawerStackParamList, 'Public'>;
 export type ScreenPrivateProps = NativeStackScreenProps<DrawerStackParamList, 'Private'>;
+export type ScreenCustomNavigation = NativeStackScreenProps<DrawerStackParamList, 'CustomNavigation'>;
