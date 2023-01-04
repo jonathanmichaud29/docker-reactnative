@@ -20,8 +20,8 @@ export default function DrawerNav() {
         },
         drawerActiveTintColor: '#e91e63',
         drawerPosition: 'right',
-        /* headerLeft: () => '',
-        headerTitle: () => '', */
+        // headerLeft: () => '',
+        // headerTitle: () => '',
         headerRight: () => (
           <DrawerToggleButton
             tintColor="blue"

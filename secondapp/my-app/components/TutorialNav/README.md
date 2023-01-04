@@ -9,3 +9,8 @@ Change the component within NavigationContainer for one of the following. All mo
 
 # DrawerNav particularities
 
+You will find two hamburgers icons:
+- The icon on the left (black color) is the default position from react-navigation. 
+- The icon on the right (blue color) reuse the same component DrawerToggleButton.
+
+You should not use both icons 
