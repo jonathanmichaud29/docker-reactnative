@@ -1,6 +1,5 @@
 import { AntDesign } from '@expo/vector-icons'; 
 
-
 export const screenNames = {
   Home: "Home",
   Profile: "Profile",

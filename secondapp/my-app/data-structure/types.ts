@@ -1,13 +1,4 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-/* 
-export type UnusedStackParamList = {
-  Feed: undefined;
-  Message: undefined;
-};
-
-export type ScreenMessageProps = NativeStackScreenProps<UnusedStackParamList, 'Message'>;
-export type ScreenFeedProps = NativeStackScreenProps<UnusedStackParamList, 'Feed'>;
- */
 
 export type BottomStackParamList = {
   Login: undefined;
