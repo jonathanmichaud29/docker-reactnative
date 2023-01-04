@@ -10,13 +10,13 @@ import * as MediaLibrary from 'expo-media-library';
 
 import domtoimage from 'dom-to-image';
 
-import ImageViewer from '../components/TutorialExpo/ImageViewer';
-import Button from '../components/TutorialExpo/Button';
-import CircleButton from '../components/TutorialExpo/CircleButton';
-import IconButton from '../components/TutorialExpo/IconButton';
-import EmojiPicker from "../components/TutorialExpo/EmojiPicker";
-import EmojiList from '../components/TutorialExpo/EmojiList';
-import EmojiSticker from '../components/TutorialExpo/EmojiSticker';
+import ImageViewer from '../tutorials/TutorialExpo/ImageViewer';
+import Button from '../tutorials/TutorialExpo/Button';
+import CircleButton from '../tutorials/TutorialExpo/CircleButton';
+import IconButton from '../tutorials/TutorialExpo/IconButton';
+import EmojiPicker from "../tutorials/TutorialExpo/EmojiPicker";
+import EmojiList from '../tutorials/TutorialExpo/EmojiList';
+import EmojiSticker from '../tutorials/TutorialExpo/EmojiSticker';
 
 const PlaceholderImage = require('../assets/images/background-image.png');
 
