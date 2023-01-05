@@ -12,12 +12,11 @@ export default function StackListingScreen(props: ComplexStackListingScreenProps
 
   const renderItem = (item: ItemProp) => {
     return (
-      <TouchableOpacity 
+      <Button 
         key={`item-${item.id}`}
+        title={item.name}
         onPress={() => navigation.navigate('ListItem', {id:item.id} )}
-      >
-        <Text>{item.name}</Text>
-      </TouchableOpacity>
+      />
     )
   }
   
