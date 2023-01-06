@@ -1,8 +1,8 @@
 // Homescreen.js
 import { Button, View, Text } from "react-native";
-import { ComplexNavTabsProps } from "../datas/types";
+import { ComplexTabAScreenProps } from "../datas/types";
 
-export default function ScreenTabA(props: ComplexNavTabsProps) {
+export default function ScreenTabA(props: ComplexTabAScreenProps) {
 
   const { navigation } = props;
 

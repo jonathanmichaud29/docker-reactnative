@@ -1,62 +1,40 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import type { BottomTabNavigationProp} from '@react-navigation/bottom-tabs'
-import type { DrawerNavigationProp } from '@react-navigation/drawer'
-import type { NavigatorScreenParams } from '@react-navigation/native';
+import type { BottomTabScreenProps} from '@react-navigation/bottom-tabs'
+import type { DrawerScreenProps } from '@react-navigation/drawer'
+import type { NavigatorScreenParams, CompositeScreenProps } from '@react-navigation/native';
 
 export type ComplexNavParamList = {
   Home: undefined;
   Listing: NavigatorScreenParams<ComplexStackParamList>;
-  Tabs: undefined;
-  
+  Tabs: NavigatorScreenParams<ComplexTabsParamList>; 
 }
-export type ComplexNavHomeProps = DrawerNavigationProp<ComplexNavParamList, 'Home'>;
-export type ComplexNavListingProps = DrawerNavigationProp<ComplexNavParamList, 'Listing'>;
-export type ComplexNavTabsProps = DrawerNavigationProp<ComplexNavParamList, 'Tabs'>;
 
-export const DrawerNavAssetNames = {
-  Home: { 
-    icon: "home",
-    label: 'Home'
-  },
-  Listing: { 
-    icon: "list",
-    label: 'Listing'
-  },
-  Tabs: { 
-    icon: "albums-outline",
-    label: 'Tabs'
-  },
-};
-
+export type ComplexNavHomeProps = DrawerScreenProps<ComplexNavParamList, 'Home'>;
+export type ComplexNavListingProps = DrawerScreenProps<ComplexNavParamList, 'Listing'>;
+export type ComplexNavTabsProps = DrawerScreenProps<ComplexNavParamList, 'Tabs'>;
 
 export type ComplexTabsParamList = {
   TabA: undefined;
   TabB: undefined;
   TabC: undefined;
 }
-export type ComplexTabAScreenProps = BottomTabNavigationProp<ComplexTabsParamList, 'TabA'>;
-export type ComplexTabBScreenProps = BottomTabNavigationProp<ComplexTabsParamList, 'TabB'>;
-export type ComplexTabCScreenProps = BottomTabNavigationProp<ComplexTabsParamList, 'TabC'>;
-
-export const TabsNavAssetNames = {
-  TabA: { 
-    icon: "add",
-    label: 'Tab A'
-  },
-  TabB: { 
-    icon: "add-circle",
-    label: 'Tab B'
-  },
-  TabC: { 
-    icon: "add-circle-outline",
-    label: 'Tab C'
-  },
-};
+export type ComplexTabAScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<ComplexTabsParamList, 'TabA'>,
+  DrawerScreenProps<ComplexNavParamList>
+  >;
+export type ComplexTabBScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<ComplexTabsParamList, 'TabB'>,
+  DrawerScreenProps<ComplexNavParamList>
+  >;
+export type ComplexTabCScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<ComplexTabsParamList, 'TabC'>,
+  DrawerScreenProps<ComplexNavParamList>
+  >;
 
 export type ComplexStackParamList = {
   StackListing: undefined;
   ListItem: {
-    id:number
+    id:number;
   };
 }
 export type ComplexStackListingScreenProps = NativeStackScreenProps<ComplexStackParamList, 'StackListing'>;

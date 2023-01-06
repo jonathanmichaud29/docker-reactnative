@@ -12,6 +12,7 @@ export default function StackNav() {
     <Stack.Navigator initialRouteName="StackListing">
       <Stack.Screen name="StackListing" component={StackListingScreen} />
       <Stack.Screen name="ListItem" component={StackItemScreen} />
+      
     </Stack.Navigator>
   )
 }

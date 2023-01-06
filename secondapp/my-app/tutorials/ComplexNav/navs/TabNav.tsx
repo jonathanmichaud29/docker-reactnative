@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import { ComplexTabsParamList, TabsNavAssetNames } from "../datas/types";
+import { ComplexTabsParamList } from "../datas/types";
+import { tabAssetNames, fallbackAsset } from '../datas/assets';
 
 import ScreenTabA from "../screens/ScreenTabA";
 import ScreenTabB from "../screens/ScreenTabB";
@@ -13,10 +14,14 @@ export default function TabNav() {
   return (
     <Tab.Navigator 
       screenOptions={({ route, navigation }) => ({
-        tabBarLabel: TabsNavAssetNames[route.name].label,
-        tabBarIcon: ({ color, size, focused }) => (
-          <Ionicons name={TabsNavAssetNames[route.name].icon} size={36} color="black"   />
-        ),
+        tabBarLabel({focused, children, color, position}) {
+          const myAsset = tabAssetNames.find((asset) => asset.name === route.name) || fallbackAsset;
+          return myAsset.label;
+        },
+        tabBarIcon: ({ color, size, focused }) => {
+          const myAsset = tabAssetNames.find((asset) => asset.name === route.name) || fallbackAsset;
+          return <Ionicons name={myAsset.icon} size={36} color="black"   />
+        },
       })}
     >
       <Tab.Screen name="TabA" component={ScreenTabA} />

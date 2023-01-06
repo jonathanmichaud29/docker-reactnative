@@ -1,7 +1,7 @@
 import { Button, View, Text } from "react-native";
-import { ComplexNavTabsProps } from "../datas/types";
+import { ComplexTabBScreenProps } from "../datas/types";
 
-export default function ScreenTabB(props: ComplexNavTabsProps) {
+export default function ScreenTabB(props: ComplexTabBScreenProps) {
 
   const { navigation } = props;
 

@@ -8,18 +8,13 @@ export default function StackItemScreen(props: ComplexStackListItemScreenProps){
 
   const {navigation, route } = props;
 
-  /**/
   const selectedItem = items.find((item: ItemProp) => item.id === route.params.id);
-  /*/
-  const selectedItem = undefined;
-  /**/
-  if( selectedItem === undefined ){
-    return navigation.dispatch( CommonActions.goBack() );
-  }
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Screen Specific Item #{selectedItem.id} with label '{selectedItem.name}'</Text>
+      { selectedItem && (
+        <Text>Screen Specific Item #{selectedItem.id} with label '{selectedItem.name}'</Text>
+      )}
       
       <Button
         title="Go Back to previous screen"

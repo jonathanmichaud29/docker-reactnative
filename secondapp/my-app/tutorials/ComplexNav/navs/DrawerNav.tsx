@@ -1,7 +1,8 @@
 import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/drawer";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import { ComplexNavParamList, DrawerNavAssetNames } from "../datas/types";
+import { ComplexNavParamList } from "../datas/types";
+import { drawerAssets, fallbackAsset } from '../datas/assets';
 
 import HomeScreen from "../screens/HomeScreen";
 import ListingScreen from "../screens/ListingScreen";
@@ -14,9 +15,8 @@ export default function DrawerNav() {
     <Drawer.Navigator initialRouteName="Home"
       screenOptions={({ route, navigation }) => ({
         drawerIcon: ({ color, size, focused }) => { //set the icon:
-          return ( //the icon will be an image
-            <Ionicons name={DrawerNavAssetNames[route.name].icon} size={32} color="green" />
-          );
+          const myAsset = drawerAssets.find((asset) => asset.name === route.name) || fallbackAsset;
+          return <Ionicons name={myAsset.icon} size={32} color="green" />
         },
         drawerActiveTintColor: '#e91e63',
         drawerPosition: 'right',
