@@ -1,4 +1,6 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { BottomTabNavigationProp} from '@react-navigation/bottom-tabs'
+import type { DrawerNavigationProp } from '@react-navigation/drawer'
 import type { NavigatorScreenParams } from '@react-navigation/native';
 
 export type ComplexNavParamList = {
@@ -7,9 +9,9 @@ export type ComplexNavParamList = {
   Tabs: undefined;
   
 }
-export type ComplexNavHomeProps = NativeStackScreenProps<ComplexNavParamList, 'Home'>;
-export type ComplexNavListingProps = NativeStackScreenProps<ComplexNavParamList, 'Listing'>;
-export type ComplexNavTabsProps = NativeStackScreenProps<ComplexNavParamList, 'Tabs'>;
+export type ComplexNavHomeProps = DrawerNavigationProp<ComplexNavParamList, 'Home'>;
+export type ComplexNavListingProps = DrawerNavigationProp<ComplexNavParamList, 'Listing'>;
+export type ComplexNavTabsProps = DrawerNavigationProp<ComplexNavParamList, 'Tabs'>;
 
 export const DrawerNavAssetNames = {
   Home: { 
@@ -32,9 +34,9 @@ export type ComplexTabsParamList = {
   TabB: undefined;
   TabC: undefined;
 }
-export type ComplexTabAScreenProps = NativeStackScreenProps<ComplexTabsParamList, 'TabA'>;
-export type ComplexTabBScreenProps = NativeStackScreenProps<ComplexTabsParamList, 'TabB'>;
-export type ComplexTabCScreenProps = NativeStackScreenProps<ComplexTabsParamList, 'TabC'>;
+export type ComplexTabAScreenProps = BottomTabNavigationProp<ComplexTabsParamList, 'TabA'>;
+export type ComplexTabBScreenProps = BottomTabNavigationProp<ComplexTabsParamList, 'TabB'>;
+export type ComplexTabCScreenProps = BottomTabNavigationProp<ComplexTabsParamList, 'TabC'>;
 
 export const TabsNavAssetNames = {
   TabA: { 

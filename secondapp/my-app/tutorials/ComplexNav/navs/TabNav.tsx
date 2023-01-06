@@ -1,14 +1,13 @@
-import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import { ComplexNavTabsProps, TabsNavAssetNames } from "../datas/types";
+import { ComplexTabsParamList, TabsNavAssetNames } from "../datas/types";
 
 import ScreenTabA from "../screens/ScreenTabA";
 import ScreenTabB from "../screens/ScreenTabB";
 import ScreenTabC from "../screens/ScreenTabC";
 
-const Tab = createBottomTabNavigator<ComplexNavTabsProps>();
+const Tab = createBottomTabNavigator<ComplexTabsParamList>();
 
 export default function TabNav() {
   return (
