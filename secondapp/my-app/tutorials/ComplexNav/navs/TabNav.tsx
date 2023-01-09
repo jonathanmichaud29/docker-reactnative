@@ -1,7 +1,8 @@
+import { Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import { ComplexTabsParamList } from "../datas/types";
+import { ComplexNavTabsProps, ComplexTabsParamList } from "../datas/types";
 import { tabAssetNames, fallbackAsset } from '../datas/assets';
 
 import ScreenTabA from "../screens/ScreenTabA";
@@ -10,17 +11,19 @@ import ScreenTabC from "../screens/ScreenTabC";
 
 const Tab = createBottomTabNavigator<ComplexTabsParamList>();
 
-export default function TabNav() {
+export default function TabNav(props: ComplexNavTabsProps) {
+  
+  const { navigation } = props;
+
   return (
     <Tab.Navigator 
+      backBehavior='history'
+      initialRouteName='TabA'
       screenOptions={({ route, navigation }) => ({
-        tabBarLabel({focused, children, color, position}) {
-          const myAsset = tabAssetNames.find((asset) => asset.name === route.name) || fallbackAsset;
-          return myAsset.label;
-        },
+        tabBarLabel: (tabAssetNames.find((asset) => asset.name === route.name) || fallbackAsset).label,
         tabBarIcon: ({ color, size, focused }) => {
           const myAsset = tabAssetNames.find((asset) => asset.name === route.name) || fallbackAsset;
-          return <Ionicons name={myAsset.icon} size={36} color="black"   />
+          return <Ionicons name={myAsset.icon} size={size} color={color}   />
         },
       })}
     >

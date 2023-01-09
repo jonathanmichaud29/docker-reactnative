@@ -1,5 +1,6 @@
 // Homescreen.js
 import { Button, View, Text } from "react-native";
+import NavButton from "../components/NavButton";
 import { ComplexTabAScreenProps } from "../datas/types";
 
 export default function ScreenTabA(props: ComplexTabAScreenProps) {
@@ -9,10 +10,7 @@ export default function ScreenTabA(props: ComplexTabAScreenProps) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Tab A</Text>
-      <Button
-        title="Go Home"
-        onPress={() => navigation.navigate("Home")}
-      />
+      <NavButton navigation={navigation} />
     </View>
   );
 }

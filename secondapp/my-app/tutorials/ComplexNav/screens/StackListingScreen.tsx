@@ -1,9 +1,9 @@
-import { View, Text, Button, TouchableOpacity } from 'react-native';
-import { ItemProp, items } from '../datas/items';
+import { View, Text, Button } from 'react-native';
 
+import { ItemProp, items } from '../datas/items';
 import { ComplexStackListingScreenProps } from '../datas/types';
 
-import { CommonActions } from '@react-navigation/native';
+import NavButton from '../components/NavButton';
 
 
 export default function StackListingScreen(props: ComplexStackListingScreenProps){
@@ -15,7 +15,7 @@ export default function StackListingScreen(props: ComplexStackListingScreenProps
       <Button 
         key={`item-${item.id}`}
         title={item.name}
-        onPress={() => navigation.navigate('ListItem', {id:item.id} )}
+        onPress={() => navigation.navigate('ListItem' , {id:item.id} )}
       />
     )
   }
@@ -23,13 +23,10 @@ export default function StackListingScreen(props: ComplexStackListingScreenProps
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Listing Screen</Text>
-      <Button
-        title="Go Back"
-        onPress={() => navigation.dispatch( CommonActions.goBack() )}
-      />
-      <View>
+      <View >
         { items.map(renderItem) }
       </View>
+      <NavButton navigation={navigation}/>
     </View>
   )
 }

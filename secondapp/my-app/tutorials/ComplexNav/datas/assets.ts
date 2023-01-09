@@ -20,7 +20,7 @@ export const drawerAssets: Array<NavAssetProps> = [
 
 
 export const tabAssetNames: Array<NavAssetProps> = [
-  {name:'TabA', icon:'add-circle', label:'Tab Alpha'},
-  {name:'TabB', icon:'add-circle-outline', label:'Tab Beta'},
+  {name:'TabA', icon:'add', label:'Tab Alpha'},
+  {name:'TabB', icon:'add-circle', label:'Tab Beta'},
   {name:'TabC', icon:'add-circle-outline', label:'Tab Charlie'},
 ];

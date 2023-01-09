@@ -1,4 +1,5 @@
 import { Button, View, Text } from "react-native";
+import NavButton from "../components/NavButton";
 import { ComplexTabCScreenProps } from "../datas/types";
 
 export default function ScreenTabC(props: ComplexTabCScreenProps) {
@@ -8,10 +9,7 @@ export default function ScreenTabC(props: ComplexTabCScreenProps) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Tab C</Text>
-      <Button
-        title="Go Home"
-        onPress={() => navigation.navigate("Home")}
-      />
+      <NavButton navigation={navigation} />
     </View>
   );
 }

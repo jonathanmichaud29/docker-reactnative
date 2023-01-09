@@ -3,6 +3,7 @@ import { ItemProp, items } from '../datas/items';
 import { CommonActions } from '@react-navigation/native';
 
 import { ComplexStackListItemScreenProps } from '../datas/types';
+import NavButton from '../components/NavButton';
 
 export default function StackItemScreen(props: ComplexStackListItemScreenProps){
 
@@ -15,11 +16,7 @@ export default function StackItemScreen(props: ComplexStackListItemScreenProps){
       { selectedItem && (
         <Text>Screen Specific Item #{selectedItem.id} with label '{selectedItem.name}'</Text>
       )}
-      
-      <Button
-        title="Go Back to previous screen"
-        onPress={() => navigation.dispatch( CommonActions.goBack() )}
-      />
+      <NavButton navigation={navigation}/>
     </View>
   )
 }

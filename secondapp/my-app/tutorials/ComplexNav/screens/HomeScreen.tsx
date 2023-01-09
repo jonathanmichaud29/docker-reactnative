@@ -1,5 +1,8 @@
 import { Button, View, Text } from "react-native";
+
 import { ComplexNavHomeProps } from "../datas/types";
+
+import NavButton from '../components/NavButton';
 
 export default function HomeScreen(props: ComplexNavHomeProps) {
 
@@ -15,6 +18,13 @@ export default function HomeScreen(props: ComplexNavHomeProps) {
           params:{ id:3}
         })}
       />
+      <Button
+        title="Go to Tab Beta"
+        onPress={() => navigation.navigate('Tabs',{
+          screen:'TabB'
+        })}
+      />
+      <NavButton navigation={navigation}/>
     </View>
   );
 }

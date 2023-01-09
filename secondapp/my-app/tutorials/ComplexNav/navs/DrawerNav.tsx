@@ -12,11 +12,13 @@ const Drawer = createDrawerNavigator<ComplexNavParamList>();
 
 export default function DrawerNav() {
   return (
-    <Drawer.Navigator initialRouteName="Home"
+    <Drawer.Navigator 
+      initialRouteName="Home"
+      backBehavior="history"
       screenOptions={({ route, navigation }) => ({
         drawerIcon: ({ color, size, focused }) => { //set the icon:
           const myAsset = drawerAssets.find((asset) => asset.name === route.name) || fallbackAsset;
-          return <Ionicons name={myAsset.icon} size={32} color="green" />
+          return <Ionicons name={myAsset.icon} size={size} color={color} />
         },
         drawerActiveTintColor: '#e91e63',
         drawerPosition: 'right',
