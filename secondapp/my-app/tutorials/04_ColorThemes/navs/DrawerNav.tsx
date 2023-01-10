@@ -7,13 +7,14 @@ import { drawerAssets, fallbackAsset } from '../datas/assets';
 import HomeScreen from "../screens/HomeScreen";
 import ListingScreen from "../screens/ListingScreen";
 import TabsScreen from "../screens/TabsScreen";
+import ThemeScreen from "../screens/ThemeScreen";
 
 const Drawer = createDrawerNavigator<ComplexNavParamList>();
 
 export default function DrawerNav() {
   return (
     <Drawer.Navigator 
-      initialRouteName="Home"
+      initialRouteName="Theme"
       backBehavior="history"
       screenOptions={({ route, navigation }) => ({
         drawerIcon: ({ color, size, focused }) => { //set the icon:
@@ -34,6 +35,7 @@ export default function DrawerNav() {
       <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen name="Listing" component={ListingScreen} />
       <Drawer.Screen name="Tabs" component={TabsScreen} />
+      <Drawer.Screen name="Theme" component={ThemeScreen} />
     </Drawer.Navigator>
   )
 }

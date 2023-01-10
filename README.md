@@ -48,10 +48,13 @@ npm install dom-to-image
 npm i --save-dev @types/dom-to-image
 
 ## Navigation Libraries
-npm install @react-navigation/native @react-navigation/native-stack
+npx expo install @react-navigation/native @react-navigation/native-stack @react-navigation/bottom-tabs @react-navigation/drawer
 npx expo install react-native-screens react-native-safe-area-context
-
-npm install @react-navigation/bottom-tabs @react-navigation/drawer
 npx expo install react-native-gesture-handler react-native-reanimated
+
+## Theming Libraries
+npx expo install styled-components
+npx expo install @types/styled-components @types/styled-components-react-native -- --save-dev
+
 
 

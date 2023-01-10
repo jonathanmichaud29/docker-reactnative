@@ -22,7 +22,7 @@ const config: ExpoConfig = {
     resizeMode: "contain",
     backgroundColor: "#25292e"
   },
-  userInterfaceStyle: "light",
+  userInterfaceStyle: "automatic",
 };
 
 export default config;
