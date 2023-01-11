@@ -4,6 +4,9 @@
     "strict": true,
     "jsx": "react-jsx"
   },
-  "include": ["*"],
-  "files": ["tutorials/04_ColorThemes/theme/styled.d.ts"]
+  "include": [
+    "*.ts",
+    "*.tsx"
+  ],
+  "exclude": ["node_modules"],
 }
