@@ -4,7 +4,7 @@ import { SafeAreaView, View, Text, Pressable } from 'react-native';
 
 
 export const Container = styled(SafeAreaView)`
-    background-color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.palette.background};
     flex: 1;
     align-items: center;
     justify-content: center;
@@ -21,23 +21,24 @@ export const Header = styled(View)`
 `;
 export const ThemeButton = styled(Pressable)`
     padding: 10px;
-    border: 1px solid ${(props) => props.theme.colors.button};
+    border: 1px solid ${(props) => props.theme.palette.primary.background};
+    background-color: ${(props) => props.theme.palette.primary.textHighContrast};
 `;
 export const ThemeButtonText = styled(Text)`
     font-size: 16px;
-    color: ${(props) => props.theme.colors.button};
+    color: ${(props) => props.theme.palette.primary.background};
 `;
 export const TitleText = styled(Text)`
     font-weight: 600;
     font-size: ${(props) => props.fontSize || '18px'};
-    color: ${(props) => props.theme.colors.title};
+    color: ${(props) => props.theme.palette.primary.background};
 `;
 export const PostContainer = styled(View)`
     padding: 10px 20px;
     width: 100%;
 `;
 export const PostText = styled(Text)`
-    color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.palette.primary.textLowContrast};
     font-size: 16px;
     padding: 10px 0 0;
     font-weight: ${(props) => props.fontWeight || '400'};

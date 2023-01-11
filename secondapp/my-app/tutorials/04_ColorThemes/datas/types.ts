@@ -7,11 +7,13 @@ export type ComplexNavParamList = {
   Home: undefined;
   Listing: NavigatorScreenParams<ComplexStackParamList>;
   Tabs: NavigatorScreenParams<ComplexTabsParamList>; 
+  Theme: undefined; 
 }
 
 export type ComplexNavHomeProps = DrawerScreenProps<ComplexNavParamList, 'Home'>;
 export type ComplexNavListingProps = DrawerScreenProps<ComplexNavParamList, 'Listing'>;
 export type ComplexNavTabsProps = DrawerScreenProps<ComplexNavParamList, 'Tabs'>;
+export type ComplexNavThemeProps = DrawerScreenProps<ComplexNavParamList, 'Theme'>;
 
 export type ComplexTabsParamList = {
   TabA: undefined;
