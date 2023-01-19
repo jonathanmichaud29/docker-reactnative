@@ -14,6 +14,10 @@ export default function HomeScreen(props: TutorialNavHomeProps) {
         title="Go to About"
         onPress={() => navigation.navigate("About")}
       />
+      <Button
+        title="Go to Contact"
+        onPress={() => navigation.navigate("Contact")}
+      />
     </View>
   );
 }

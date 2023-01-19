@@ -1,3 +1,4 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export type TutorialNavParamList = {
@@ -9,17 +10,21 @@ export type TutorialNavHomeProps = NativeStackScreenProps<TutorialNavParamList, 
 export type ScreenTutorialNavHomeProps = NativeStackScreenProps<TutorialNavParamList, 'About'>;
 export type ScreenTutorialNavContactProps = NativeStackScreenProps<TutorialNavParamList, 'Contact'>;
 
-export const NavAssetNames = {
-  Home: { 
-    icon: "log-in",
-    label: 'Home'
-  },
-  About: { 
-    icon: "information",
-    label: 'About'
-  },
-  Contact: { 
-    icon: "warning-outline",
-    label: 'Contact'
-  },
+
+type NavAssetProps = {
+  name: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  label: string;
+}
+
+export const fallbackAsset: NavAssetProps = {
+  name:'Default', 
+  icon:'apps', 
+  label:'Default Page'
 };
+
+export const assetNames: Array<NavAssetProps> = [
+  {name:'Home', icon:'home', label:'Home Page'},
+  {name:'About', icon:'list', label:'About Page'},
+  {name:'Contact', icon:'albums-outline', label:'Contact Page'},
+];

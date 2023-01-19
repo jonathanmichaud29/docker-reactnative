@@ -1,5 +1,3 @@
-// https://blog.logrocket.com/react-native-navigation-tutorial/
-
 import { NavigationContainer } from "@react-navigation/native";
 
 import DrawerNav from './DrawerNav';

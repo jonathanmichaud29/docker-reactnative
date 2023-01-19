@@ -1,8 +1,7 @@
-import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import { TutorialNavParamList, NavAssetNames } from "./types";
+import { TutorialNavParamList, assetNames, fallbackAsset } from "./types";
 
 import AboutScreen from "./AboutScreen";
 import HomeScreen from "./HomeScreen";
@@ -14,10 +13,11 @@ export default function TabNav() {
   return (
     <Tab.Navigator initialRouteName="Home"
       screenOptions={({ route, navigation }) => ({
-        tabBarLabel: NavAssetNames[route.name].label,
-        tabBarIcon: ({ color, size, focused }) => (
-          <Ionicons name={NavAssetNames[route.name].icon} size={36} color="black"   />
-        ),
+        tabBarLabel: (assetNames.find((asset) => asset.name === route.name) || fallbackAsset).label,
+        tabBarIcon: ({ color, size, focused }) => {
+          const myAsset = assetNames.find((asset) => asset.name === route.name) || fallbackAsset;
+          return <Ionicons name={myAsset.icon} size={size} color={color} />
+        },
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />

@@ -50,6 +50,7 @@ npx expo install expo-image-picker
 npx expo install react-native-view-shot expo-media-library
 
 # Use Gesture Handlers
+npx expo install react-native-screens react-native-safe-area-context
 npx expo install react-native-gesture-handler react-native-reanimated
 npm install -D @babel/plugin-proposal-export-namespace-from
 
@@ -74,16 +75,6 @@ module.exports = function(api) {
 };
 ```
 
-
-
-#### Navigation Libraries
-
-```bash
-npx expo install @react-navigation/native @react-navigation/native-stack @react-navigation/bottom-tabs @react-navigation/drawer
-npx expo install react-native-screens react-native-safe-area-context
-npx expo install react-native-gesture-handler react-native-reanimated
-```
-
 #### Theming Libraries
 
 ```bash
@@ -91,15 +82,13 @@ npx expo install styled-components
 npx expo install @types/styled-components @types/styled-components-react-native -- --save-dev
 ```
 
-
-
 ## Usage : Docker build and run the application
 
 ```bash
 docker-compose up -d --build
 ```
 
-Open web browser and go to http://localhost:19006
+Open a web browser and go to http://localhost:19006
 
 Use your Android "Expo Go" app and scan the QR code, available in your docker container logs
 
