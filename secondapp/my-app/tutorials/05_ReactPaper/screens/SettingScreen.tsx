@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { View } from "react-native";
-import { Button, Text, Switch } from "react-native-paper";
+import { Button, Text, Switch, Tooltip, IconButton, MD3Colors } from "react-native-paper";
 
 import { AppContext } from "../store/StoreContext";
 import { ThemeModeActionTypes } from '../store/storeReducers'
@@ -28,7 +28,7 @@ export default function SettingScreen(){
     payload: !state.isLargeFont
   })
 
-  
+  console.log(MD3Colors);
 
   return (
     <>
@@ -45,7 +45,12 @@ export default function SettingScreen(){
         </Button>
       </View>
       <View style={styles.rowToggle}>
-        <Text>Larger Font Size</Text>
+        <View style={styles.rowFlexStart}>
+          <Text>Larger Font Size</Text>
+          <Tooltip title="Information">
+            <IconButton icon="information" size={20} />
+          </Tooltip>
+        </View>
         <Switch value={state.isLargeFont} onValueChange={handleLargerFontToggle} />
       </View>
     </>
