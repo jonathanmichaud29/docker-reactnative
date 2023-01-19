@@ -22,7 +22,7 @@ export default function DrawerNav() {
         },
         drawerActiveTintColor: '#e91e63',
         drawerPosition: 'right',
-        // headerLeft: () => '',
+        headerLeft: () => '',
         // headerTitle: () => '',
         headerRight: () => (
           <DrawerToggleButton

@@ -1,5 +1,4 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { View, Text } from "react-native";
 
 import DrawerNav from './navs/DrawerNav';
 
