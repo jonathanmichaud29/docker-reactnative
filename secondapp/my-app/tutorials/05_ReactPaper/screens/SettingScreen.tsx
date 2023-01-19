@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { View } from "react-native";
-import { Button, Subheading, Switch } from "react-native-paper";
+import { Button, Text, Switch } from "react-native-paper";
 
 import { AppContext } from "../store/StoreContext";
 import { ThemeModeActionTypes } from '../store/storeReducers'
@@ -11,22 +11,29 @@ export default function SettingScreen(){
   const { state, dispatch } = useContext(AppContext);
   
   const handleThemeToggle = () => dispatch({
-    type: ThemeModeActionTypes.Toggle,
+    type: ThemeModeActionTypes.ThemeToggle,
     payload: !state.isDarkMode,
   })
   const handleThemeForceDark = () => dispatch({
-    type: ThemeModeActionTypes.Dark,
+    type: ThemeModeActionTypes.ThemeDark,
     payload: true
   })
   const handleThemeForceLight = () => dispatch({
-    type: ThemeModeActionTypes.Light,
+    type: ThemeModeActionTypes.ThemeLight,
     payload: false
   })
+
+  const handleLargerFontToggle = () => dispatch({
+    type: ThemeModeActionTypes.FontToggleSize,
+    payload: !state.isLargeFont
+  })
+
+  
 
   return (
     <>
       <View style={styles.rowToggle}>
-        <Subheading>Dark Mode</Subheading>
+        <Text>Dark Mode</Text>
         <Switch value={state.isDarkMode} onValueChange={handleThemeToggle} />
       </View>
       <View style={styles.rowToggle}>
@@ -36,6 +43,10 @@ export default function SettingScreen(){
         <Button onPress={handleThemeForceDark} mode="contained" disabled={state.isDarkMode}>
           Force Dark Mode
         </Button>
+      </View>
+      <View style={styles.rowToggle}>
+        <Text>Larger Font Size</Text>
+        <Switch value={state.isLargeFont} onValueChange={handleLargerFontToggle} />
       </View>
     </>
   )

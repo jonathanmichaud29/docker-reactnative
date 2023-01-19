@@ -3,7 +3,8 @@ import { ReactNode, Dispatch, createContext, useReducer } from 'react';
 import { ThemeModeAction, themeModeReducer, ThemeModeState } from './storeReducers';
 
 const initialState: ThemeModeState = {
-  isDarkMode: true
+  isDarkMode: true,
+  isLargeFont: false,
 }
 
 const AppContext = createContext<{
