@@ -28,8 +28,6 @@ export default function SettingScreen(){
     payload: !state.isLargeFont
   })
 
-  console.log(MD3Colors);
-
   return (
     <>
       <View style={styles.rowToggle}>

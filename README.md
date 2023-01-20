@@ -75,13 +75,6 @@ module.exports = function(api) {
 };
 ```
 
-#### Theming Libraries
-
-```bash
-npx expo install styled-components
-npx expo install @types/styled-components @types/styled-components-react-native -- --save-dev
-```
-
 ## Usage : Docker build and run the application
 
 ```bash
