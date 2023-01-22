@@ -6,11 +6,12 @@ import ComplexNav from './tutorials/03_RN-ComplexNav/ComplexNav';
 import ColorThemes from './tutorials/04_ColorThemes/ColorThemes';
 import ReactPaper from './tutorials/05_ReactPaper/ReactPaper';
 import Api from './tutorials/06_API/Api';
+import ApiLogin from './tutorials/07_API_Login/ApiLogin';
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <Api />
+      <ApiLogin />
     </SafeAreaProvider>
   );
 }
