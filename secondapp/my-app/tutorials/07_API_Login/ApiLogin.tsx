@@ -24,7 +24,7 @@ export default function ApiLogin(){
     <PaperProvider theme={CombinedTheme}>
       <NavigationContainer theme={CombinedTheme}>
         <Drawer.Navigator 
-          initialRouteName="Home"
+          initialRouteName="Login"
           backBehavior="history"
           screenOptions={({ route, navigation }) => ({
             drawerIcon: ({ color, size, focused }) => { //set the icon:
