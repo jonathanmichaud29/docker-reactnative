@@ -4,7 +4,7 @@ import { List, IconButton, Text, Surface } from "react-native-paper";
 import { UserListProps } from "../datas/navTypes";
 import { IUserProp } from "../datas/userTypes";
 
-import { fetchUsers } from "../axios/regres";
+import { fetchUsers } from "../api/regres";
 
 
 export default function UserListScreen(props: UserListProps) {

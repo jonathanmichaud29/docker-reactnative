@@ -1,49 +1,20 @@
-import { Provider as PaperProvider, MD3DarkTheme, adaptNavigationTheme } from 'react-native-paper';
-import { NavigationContainer, DarkTheme as NavigationDarkTheme } from "@react-navigation/native";
-import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/drawer";
-import Ionicons from '@expo/vector-icons/Ionicons';
-import merge from 'deepmerge';
+import { Provider as PaperProvider,  } from 'react-native-paper';
+import { NavigationContainer } from "@react-navigation/native";
 
-import { drawerAssets, fallbackAsset } from './datas/assets';
-import { DrawerNavParamList } from "./datas/navTypes";
+import { combinedTheme } from './datas/theme'
 
-import HomeScreen from "./screens/HomeScreen";
-import LoginScreen from './screens/LoginScreen';
+import { useAuthentication } from './datas/hooks/useFirebaseAuth';
 
-const Drawer = createDrawerNavigator<DrawerNavParamList>();
-
-// Create theme compatibility between React-Native-Paper and React-Navigation
-const { DarkTheme } = adaptNavigationTheme({
-  reactNavigationDark: NavigationDarkTheme,
-});
-const CombinedTheme = merge(MD3DarkTheme, DarkTheme);
+import UserStack from './navigation/UserStack';
+import AuthStack from './navigation/AuthStack';
 
 export default function ApiLogin(){
-  
+  const { user } = useAuthentication();
+
   return(
-    <PaperProvider theme={CombinedTheme}>
-      <NavigationContainer theme={CombinedTheme}>
-        <Drawer.Navigator 
-          initialRouteName="Login"
-          backBehavior="history"
-          screenOptions={({ route, navigation }) => ({
-            drawerIcon: ({ color, size, focused }) => { //set the icon:
-              const myAsset = drawerAssets.find((asset) => asset.name === route.name) || fallbackAsset;
-              return <Ionicons name={myAsset.icon} size={size} color={color} />
-            },
-            drawerPosition: 'right',
-            headerLeft: () => '',
-            // headerTitle: () => '',
-            headerRight: () => (
-              <DrawerToggleButton
-                tintColor={CombinedTheme.colors.primary}
-              ></DrawerToggleButton>
-            )
-          })}
-        >
-          <Drawer.Screen name="Home" component={HomeScreen} />
-          <Drawer.Screen name="Login" component={LoginScreen} />
-        </Drawer.Navigator>
+    <PaperProvider theme={combinedTheme}>
+      <NavigationContainer theme={combinedTheme}>
+        { user ? <UserStack /> : <AuthStack /> }
       </NavigationContainer>
     </PaperProvider>
   )

@@ -3,7 +3,7 @@ import { ActivityIndicator, Avatar, Surface, Text } from "react-native-paper";
 
 import { UserDetailsProps } from "../datas/navTypes";
 import { IUserProp } from "../datas/userTypes";
-import { fetchUser } from "../axios/regres";
+import { fetchUser } from "../api/regres";
 
 
 

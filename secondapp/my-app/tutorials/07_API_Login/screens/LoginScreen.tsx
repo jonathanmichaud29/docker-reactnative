@@ -1,41 +1,61 @@
-import { StyleSheet, View } from "react-native";
-import { Surface, Text, TextInput, Button, HelperText } from "react-native-paper";
-import { useForm, Controller, SubmitHandler, FormProvider } from "react-hook-form";
+import { useState } from "react";
+import { View } from "react-native";
+import { Text, Surface, Button } from "react-native-paper";
+import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 
 import { DrawerNavLoginProps } from "../datas/navTypes";
-import { makeUserSignIn, makeUserSignUp } from '../datas/firebaseConfig'
+import { styles } from "../datas/styles";
+
+import { EUserLogin, makeUserSignIn } from '../api/firebase'
 
 import FormTextInput from '../components/form/FormTextInput'
+import FormError from '../components/message/FormError'
 
-
-
-const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", marginHorizontal: 30 },
-  input: { marginVertical: 5 },
-});
 
 
 type FormValues = {
   password: string;
   email: string;
 };
-const ERROR_MESSAGES = {
-  REQUIRED: "This Field Is Required",
-  EMAIL_INVALID: "Not a Valid Email",
-}
 
 export default function LoginScreen(props: DrawerNavLoginProps) {
-
+  console.warn("Login SCREEN")
   const { navigation } = props;
+
+  const [apiError, changeApiError] = useState("");
+  
+  const resetFormState = () => {
+    changeApiError("");
+  }
 
   const methods = useForm<FormValues>({
     mode: "onChange",
+    defaultValues: {
+      email: "jonathan.michaud29@gmail.com",
+      password: "666laCour36",
+    }
   })
   const { formState, handleSubmit } = methods;
-  const onSubmit: SubmitHandler<FormValues> = data => console.log(data);
+  const onSubmit: SubmitHandler<FormValues> = data => {
+
+    resetFormState();
+    
+    makeUserSignIn(data.email, data.password)
+      .then((userCredential) => {
+        console.log("login success", userCredential);
+        changeApiError("");
+      })
+      .catch((error: EUserLogin) => {
+        console.log("login error", error);
+        changeApiError(error.message);
+      })
+      .then(() =>{
+        
+      });
+  }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.mainContainer}>
       <Text variant="titleLarge">Login Area</Text>
       <FormProvider {...methods}>
         <FormTextInput
@@ -57,6 +77,10 @@ export default function LoginScreen(props: DrawerNavLoginProps) {
         >Submit</Button>
       </FormProvider>
       
+      <FormError 
+        message={apiError}
+      />
+
     </View>
   )
 }
