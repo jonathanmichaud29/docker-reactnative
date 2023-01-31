@@ -27,7 +27,7 @@ export default function AuthStack(){
           return <Ionicons name={myAsset.icon} size={size} color={color} />
         },
         drawerPosition: 'right',
-        headerLeft: () => '',
+        headerLeft: () => null,
         // headerTitle: () => '',
         headerRight: () => (
           <DrawerToggleButton

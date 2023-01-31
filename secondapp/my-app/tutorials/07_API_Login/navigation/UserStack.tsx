@@ -35,7 +35,7 @@ export default function UserStack() {
           return <Ionicons name={myAsset.icon} size={size} color={color} />
         },
         drawerPosition: 'right',
-        headerLeft: () => '',
+        headerLeft: () => null,
         headerRight: () => (
           <DrawerToggleButton
             tintColor={combinedTheme.colors.primary}
