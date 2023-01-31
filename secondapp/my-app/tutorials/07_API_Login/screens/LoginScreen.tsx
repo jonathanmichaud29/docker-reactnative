@@ -19,7 +19,7 @@ type FormValues = {
 };
 
 export default function LoginScreen(props: DrawerNavLoginProps) {
-  console.warn("Login SCREEN")
+  
   const { navigation } = props;
 
   const [apiError, changeApiError] = useState("");
@@ -42,11 +42,9 @@ export default function LoginScreen(props: DrawerNavLoginProps) {
     
     makeUserSignIn(data.email, data.password)
       .then((userCredential) => {
-        console.log("login success", userCredential);
         changeApiError("");
       })
       .catch((error: EUserLogin) => {
-        console.log("login error", error);
         changeApiError(error.message);
       })
       .then(() =>{

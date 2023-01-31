@@ -14,10 +14,7 @@ const Drawer = createDrawerNavigator<DrawerNavPublicList>();
 
 export default function AuthStack(){
 
-  console.warn("AUTH STACK")
-
   return (
-    <>
     <Drawer.Navigator 
       initialRouteName="Login"
       backBehavior="history"
@@ -39,7 +36,6 @@ export default function AuthStack(){
       <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen name="Login" component={LoginScreen} />
     </Drawer.Navigator>
-    </>
   )
 }
 

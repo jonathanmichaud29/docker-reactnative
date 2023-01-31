@@ -1,5 +1,4 @@
-import { View } from 'react-native';
-import { Button, Text } from 'react-native-paper';
+import { Button, Surface, Text } from 'react-native-paper';
 import { signOut } from 'firebase/auth/react-native';
 
 import { useAuthentication } from '../datas/hooks/useFirebaseAuth';
@@ -20,12 +19,12 @@ export default function UserHomeScreen(props: DrawerNavUserWelcomeProps){
   }
   
   return (
-    <View style={styles.mainContainer}>
+    <Surface style={styles.mainContainer}>
       <Text variant="titleLarge">Welcome {user?.email}!</Text>
       <Button 
         mode="contained" 
         onPress={triggerSignOut}
       >Log out</Button>
-    </View>
+    </Surface>
   );
 }

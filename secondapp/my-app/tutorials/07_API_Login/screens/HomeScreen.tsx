@@ -9,7 +9,7 @@ import UserListScreen from "./UserListScreen";
 import UserDetailsScreen from './UserDetailsScreen';
 
 export default function HomeScreen(props: DrawerNavHomeProps) {
-  console.warn("HOME SCREEN")
+  
   const { navigation } = props;
 
   return (

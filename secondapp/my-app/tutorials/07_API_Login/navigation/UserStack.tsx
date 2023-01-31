@@ -1,11 +1,7 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList, DrawerToggleButton } from "@react-navigation/drawer";
-import { signOut } from 'firebase/auth/react-native';
-import { View } from 'react-native';
+import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/drawer";
 
 import { drawerPrivateAssets, fallbackAsset } from '../datas/assets';
-import { firebaseAuth } from '../datas/firebaseConfig';
-import { useAuthentication } from '../datas/hooks/useFirebaseAuth';
 import { DrawerNavLoggedUser } from "../datas/navTypes";
 import { combinedTheme } from '../datas/theme'
 
@@ -14,17 +10,8 @@ import UserLogoutScreen from "../screens/UserLogoutScreen";
 
 const Drawer = createDrawerNavigator<DrawerNavLoggedUser>();
 
-/* import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import UserHomeScreen from '../screens/UserHomeScreen';
-const Stack = createNativeStackNavigator(); */
-
 export default function UserStack() {
 
-  const { user } = useAuthentication();
-  console.warn("USER STACK")
-  if( ! user ){
-    console.info("great stuff")
-  }
   return (
     <Drawer.Navigator 
       initialRouteName="Welcome"
