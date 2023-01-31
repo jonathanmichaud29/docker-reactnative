@@ -13,6 +13,7 @@ npx expo install firebase
 npx expo install react-native-dotenv
 npx expo install @types/react-native-dotenv -- --save-dev
 npx expo install react-hook-form
+npx expo install @react-native-async-storage/async-storage
 ```
 
 ## Extras

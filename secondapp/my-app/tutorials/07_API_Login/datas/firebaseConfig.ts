@@ -1,7 +1,9 @@
 import { initializeApp } from 'firebase/app';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Optionally import the services that you want to use
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
+import {getReactNativePersistence, initializeAuth} from 'firebase/auth/react-native';
 // import { getAnalytics } from "firebase/analytics";
 // import {...} from "firebase/database";
 // import {...} from "firebase/firestore";
@@ -31,31 +33,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
-
-const auth = getAuth(app);
-
-export const makeUserSignIn = (email: string, password: string) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
-}
-
-export const makeUserSignUp = (email: string, password: string) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
-}
+export const firebaseAuth = initializeAuth(app, {
+  persistence: getReactNativePersistence(AsyncStorage)
+});
+// export const firebaseAuth = getAuth(app);
