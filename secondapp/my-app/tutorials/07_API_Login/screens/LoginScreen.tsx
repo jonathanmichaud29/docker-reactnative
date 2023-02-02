@@ -38,8 +38,8 @@ export default function LoginScreen(props: DrawerNavLoginProps) {
   const methods = useForm<FormValues>({
     mode: "onChange",
     defaultValues: {
-      email: "goodjoe696@gmail.com",
-      password: "666laCour36",
+      email: "",
+      password: "",
     }
   })
   const { formState, handleSubmit } = methods;
