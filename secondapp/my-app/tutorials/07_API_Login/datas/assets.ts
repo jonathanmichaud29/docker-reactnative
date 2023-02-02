@@ -14,7 +14,9 @@ export const fallbackAsset: NavAssetProps = {
 
 export const drawerAssets: Array<NavAssetProps> = [
   {name:'Home', icon:'home', label:'Home Page'},
-  {name:'User', icon:'list', label:'User'},
+  {name:'Login', icon:'log-in', label:'Login'},
+  {name:'ForgetPassword', icon:'flag', label:'Forget password'},
+  {name:'Signup', icon:'flag', label:'Sign up'},
 ];
 
 export const drawerPrivateAssets: Array<NavAssetProps> = [

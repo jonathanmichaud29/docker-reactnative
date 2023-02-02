@@ -9,10 +9,14 @@ import type { NavigatorScreenParams, CompositeScreenProps } from '@react-navigat
 export type DrawerNavPublicList = {
   Home: NavigatorScreenParams<StackNavParamList>;
   Login: undefined;
+  ForgetPassword: undefined;
+  Signup: undefined;
 }
 
 export type DrawerNavHomeProps = DrawerScreenProps<DrawerNavPublicList, 'Home'>;
 export type DrawerNavLoginProps = DrawerScreenProps<DrawerNavPublicList, 'Login'>;
+export type DrawerNavForgetPasswordProps = DrawerScreenProps<DrawerNavPublicList, 'ForgetPassword'>;
+export type DrawerNavSignupProps = DrawerScreenProps<DrawerNavPublicList, 'Signup'>;
 
 export type StackNavParamList = {
   UserList: undefined;
@@ -25,18 +29,15 @@ export type UserDetailsProps = NativeStackScreenProps<StackNavParamList, 'UserDe
  * Private navigations
  */
 
+
+export type SimpleNavRequiredValidation = {
+  RequiredValidation: undefined;
+}
+export type SimpleNavRequiredValidationProps = NativeStackScreenProps<SimpleNavRequiredValidation, 'RequiredValidation'>;
+
 export type DrawerNavLoggedUser = {
   Welcome: undefined;
   Logout: undefined;
 }
-/* export type DrawerNavUserWelcomeProps = DrawerScreenProps<DrawerNavLoggedUser, 'Welcome'>; */
-export type DrawerNavUserWelcomeProps = CompositeScreenProps<
-  DrawerScreenProps<DrawerNavLoggedUser, 'Welcome'>,
-  DrawerScreenProps<DrawerNavPublicList, 'Login'>
-  >;
+export type DrawerNavUserWelcomeProps = DrawerScreenProps<DrawerNavLoggedUser, 'Welcome'>;
 export type DrawerNavUserLogoutProps = DrawerScreenProps<DrawerNavLoggedUser, 'Logout'>;
-
-/* export type DrawerNavUserLogoutProps = CompositeScreenProps<
-  DrawerScreenProps<DrawerNavLoggedUser, 'Logout'>,
-  DrawerScreenProps<DrawerNavPublicList, 'Login'>
-  >; */

@@ -12,10 +12,7 @@ export default function UserHomeScreen(props: DrawerNavUserWelcomeProps){
   const { user } = useAuthentication();
 
   const triggerSignOut = async() =>{
-    await signOut(firebaseAuth).then(()=>{
-      /* props.navigation.navigate("Login") */
-    });
-    /* props.navigation.navigate("Login") */
+    await signOut(firebaseAuth);
   }
   
   return (

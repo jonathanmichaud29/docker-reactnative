@@ -21,6 +21,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start'
   },
+  rowCenterAround: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
   snackbarError:{
     backgroundColor:'tomato',
   },

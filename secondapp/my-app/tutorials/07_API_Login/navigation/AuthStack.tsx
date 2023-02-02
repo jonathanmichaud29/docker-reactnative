@@ -7,17 +7,16 @@ import { combinedTheme } from '../datas/theme'
 
 import HomeScreen from "../screens/HomeScreen";
 import LoginScreen from '../screens/LoginScreen';
+import ForgetPasswordScreen from '../screens/ForgetPasswordScreen';
+import SignupScreen from '../screens/SignupScreen';
 
 const Drawer = createDrawerNavigator<DrawerNavPublicList>();
-
-
 
 export default function AuthStack(){
 
   return (
     <Drawer.Navigator 
       initialRouteName="Login"
-      backBehavior="history"
       screenOptions={({ route, navigation }) => ({
         drawerIcon: ({ color, size, focused }) => { //set the icon:
           const myAsset = drawerAssets.find((asset) => asset.name === route.name) || fallbackAsset;
@@ -33,8 +32,18 @@ export default function AuthStack(){
         )
       })}
     >
-      <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen name="Login" component={LoginScreen} />
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="ForgetPassword" component={ForgetPasswordScreen} 
+        options={{
+          drawerItemStyle: { height: 0 }
+        }}
+      />
+      <Drawer.Screen name="Signup" component={SignupScreen} 
+        options={{
+          drawerItemStyle: { height: 0 }
+        }}
+      />
     </Drawer.Navigator>
   )
 }
