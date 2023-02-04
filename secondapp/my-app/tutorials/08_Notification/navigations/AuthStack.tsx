@@ -8,6 +8,7 @@ import { combinedTheme } from '../datas/theme'
 import LoginScreen from '../screens/public/LoginScreen';
 import ForgetPasswordScreen from '../screens/public/ForgetPasswordScreen';
 import SignupScreen from '../screens/public/SignupScreen';
+import TestNotificationScreen from '../screens/public/TestNotificationScreen';
 
 const Drawer = createDrawerNavigator<DrawerNavPublicList>();
 
@@ -32,6 +33,7 @@ export default function AuthStack(){
       })}
     >
       <Drawer.Screen name="Login" component={LoginScreen} />
+      <Drawer.Screen name="TestNotification" component={TestNotificationScreen} />
       <Drawer.Screen name="ForgetPassword" component={ForgetPasswordScreen} 
         options={{
           drawerItemStyle: { height: 0 }

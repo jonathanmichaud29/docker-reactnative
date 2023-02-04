@@ -16,6 +16,7 @@ export const drawerAssets: Array<NavAssetProps> = [
   {name:'Login', icon:'log-in', label:'Login'},
   {name:'ForgetPassword', icon:'flag', label:'Forget password'},
   {name:'Signup', icon:'flag', label:'Sign up'},
+  {name:'TestNotification', icon:'flag', label:'Test Notifications'},
 ];
 
 export const drawerPrivateAssets: Array<NavAssetProps> = [

@@ -9,11 +9,13 @@ export type DrawerNavPublicList = {
   Login: undefined;
   ForgetPassword: undefined;
   Signup: undefined;
+  TestNotification: undefined;
 }
 
 export type DrawerNavLoginProps = DrawerScreenProps<DrawerNavPublicList, 'Login'>;
 export type DrawerNavForgetPasswordProps = DrawerScreenProps<DrawerNavPublicList, 'ForgetPassword'>;
 export type DrawerNavSignupProps = DrawerScreenProps<DrawerNavPublicList, 'Signup'>;
+export type DrawerNavTestNotificationProps = DrawerScreenProps<DrawerNavPublicList, 'TestNotification'>;
 
 export type StackNavParamList = {
   UserList: undefined;
